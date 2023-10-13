@@ -1,0 +1,33 @@
+﻿@model CartopiaStore.Models.Auth;
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="Login min-vh-100 py-5 ">
+
+    <div class="">
+        <form method="post" asp-action="Login" asp-controller="Auth">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="username">Email address</label>  
+                <input type="text" id="form2Example1" asp-for="username" class="form-control" required="" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="password">Password</label>
+                <input type="password" asp-for="password" class="form-control" required="" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+            <div class="text-center w-100">
+
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</section>

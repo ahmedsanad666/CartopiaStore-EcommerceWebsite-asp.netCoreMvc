@@ -1,0 +1,15 @@
+﻿@model List<Product>
+
+<div class="category-products searchTreading-image">
+   
+    
+        @foreach (var product in Model)
+        {
+            
+            <div class=" d-flex  flex-column">
+            <img src="@product.thumbnail" />
+            <span class="text-sm-center text-black w-75">@product.title</span>
+            </div>
+        }
+    
+</div>

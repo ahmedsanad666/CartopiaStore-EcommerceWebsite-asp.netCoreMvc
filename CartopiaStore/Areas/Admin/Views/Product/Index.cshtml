@@ -1,0 +1,57 @@
+﻿@model List<CartopiaStore.Models.Product>;
+
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<section class=" min-vh-100 py-5 ManageProducts">
+
+    <div class=" container ">
+        <h1 class=" text-center my-4 py-2 fw-bold">Manage Products</h1>
+
+        <div class=" my-3">
+            <div class=" w-100 py-1  text-end">
+                <a asp-area="Admin" class="btn btn-success" asp-controller="Product" asp-action="Index">Add New <i class="mx-1 fa-solid fa-plus"></i></a>
+            </div>
+            <table class="table table-striped border ">
+                <thead>
+                    <tr>
+                        <th> Name</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Controller</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <th scope="row">@product.title</th>
+                            <td>@product.category</td>
+
+                            <td>
+                                <img src="@product.thumbnail" />
+                            </td>
+                             <td class=" position-relative">
+                        <div class="adminDes" >
+                        @product.description
+                        </div>
+                        </td>
+                            <td>@product.price $</td>
+                            <td>
+                                <div class="d-flex flex-column flex-md-row gap-2 ">
+                                    <a class="btn btn-success">Edit</a>
+                                    <a class="btn btn-danger">Delete</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

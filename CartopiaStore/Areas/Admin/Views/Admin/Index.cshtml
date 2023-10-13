@@ -1,0 +1,148 @@
+﻿
+@model CartopiaStore.Models.AdminModel;
+@{
+    ViewData["Title"] = "Admin";
+}
+<section class="min-vh-100 py-5 Admin">
+    <div class="container">
+        <div class="row">
+       
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">All Users </h5>
+                        <p class="card-text">Total Users: @ViewBag.ProductCount</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">All Categories</h5>
+                        <p class="card-text">Total Categories: @ViewBag.CatCount</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">All Products</h5>
+                        <p class="card-text">Total Products: @ViewBag.userCount</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row mt-4">
+            <div class="col-md-6">
+              <div class=" w-100 py-1  text-end">
+                    <a asp-area="Admin" class="btn btn-success" asp-controller="Product" asp-action="Index">Manage</a>
+              </div>
+                <table class="table table-striped border ">
+                    <thead>
+                        <tr>
+                            <th> Name</th>
+                            <th>Category</th>
+                            <th>Image</th>
+                            @* <th>Description</th> *@
+                            <th>Price</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody >
+                        @foreach (var product in Model.Products)
+                        {
+                            <tr>
+                                <th scope="row">@product.title</th>
+                                <td>@product.category</td>
+                                    
+                                <td>
+                                    <img src="@product.thumbnail"/>
+                                </td>
+                               @*  <td class=" position-relative">
+                                    <div class="adminDes" >
+                                    @product.description    
+                                    </div>
+                                </td> *@
+                                <td>@product.price $</td>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class=" w-100 py-1 text-end">
+                    <a asp-controller="Admin" class="btn btn-danger" asp-controller="Category" asp-action="Index">Manage</a>
+                </div>
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th>Category Name</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach(var el in Model.Categories.Categories){
+
+                        <tr>
+                    <td>@el</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class=" w-100 py-1 text-end">
+                    <a asp-controller="Admin" class="btn btn-success" asp-controller="User" asp-action="Index">Manage</a>
+                </div>
+                <table class="table table-striped border users">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Image</th>
+                            <th>
+                               Domain
+                            </th>
+                            <th>Adress</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var user in Model.Users)
+                        {
+                            <tr>
+                                <td>
+                                    @user.id
+                                </td>
+                                <td>
+                                    @user.username
+                                </td>
+                                <td>
+                                    <img src="@user.image" />
+                                </td>
+                                <td>
+                                    @user.domain
+                                </td>
+                                <td>
+                                    @user.address.address
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<section class=" min-vh-100 py-5 ">
+    <div class="container">
+       
+
+    </div>
+
+</section>
