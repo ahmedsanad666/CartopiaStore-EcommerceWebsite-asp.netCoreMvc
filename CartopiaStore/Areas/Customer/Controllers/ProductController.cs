@@ -42,5 +42,41 @@ namespace CartopiaStore.Areas.Customer.Controllers
 
             return View(viewModel);
         }
+
+        // GET product by id 
+
+        public async Task<IActionResult> SingleProduct(int id)
+        {
+            Product product = null;
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                string productLink = $"https://dummyjson.com/products/{id}";
+
+                HttpResponseMessage productResponse = await client.GetAsync(productLink);
+
+                if (productResponse.IsSuccessStatusCode)
+                {
+                    string productData = await productResponse.Content.ReadAsStringAsync();
+                    product = JsonConvert.DeserializeObject<Product>(productData);
+
+
+                    product.priceAfterDiscount = product.price - (product.price * (product.discountPercentage / 100));
+
+                    return View(product);
+                }
+            }
+
+            return NotFound();
+        }
+
     }
+
+
+
+
 }

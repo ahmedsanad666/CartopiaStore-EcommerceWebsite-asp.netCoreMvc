@@ -1,0 +1,104 @@
+﻿
+
+@model CartopiaStore.Models.Product;
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+
+
+<section class="control_page Add_member flex-column min-vh-100 ">
+
+
+
+    <h1 class=" text-center my-4 py-2 fw-bold">Edit Product</h1>   
+    
+    <div class="settingsData  mt-3">
+        <form method="post"  asp-action="Edit">
+            <input asp-for="id" hidden />
+
+
+
+            <div class="row ">
+
+
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="title"></label>
+                    <input type="text" asp-for="title" required="" />
+                    <span asp-validation-for="title" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="col-12 col-md-6">
+                    <label asp-for="description"></label>
+                    <textarea asp-for="description" rows="3" required=""></textarea>
+                    <span asp-validation-for="description" class="text-danger"></span>
+
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="price  "></label>
+                    <input type="number" asp-for="price" required="" />
+                    <span asp-validation-for="price" class="text-danger"></span>
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="discountPercentage"></label>
+                    <input type="number" asp-for="discountPercentage" required="" />
+                    <span asp-validation-for="discountPercentage" class="text-danger"></span>
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="rating"></label>
+                    <input type="number" asp-for="rating" required="" />
+                    <span asp-validation-for="rating" class="text-danger"></span>
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="stock"></label>
+                    <input type="number" asp-for="stock" required="" />
+                    <span asp-validation-for="stock" class="text-danger"></span>
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="category"></label>
+                    <input type="text" asp-for="category" required="" />
+                    <span asp-validation-for="category" class="text-danger"></span>
+                </div>
+                @*........................*@
+                <div class="col-12 col-md-6">
+                    <label asp-for="thumbnail"></label>
+                    <input type="text" asp-for="thumbnail" required="" />
+                    <span asp-validation-for="thumbnail" class="text-danger"></span>
+                </div>
+                @*........................*@
+                .<div class="col-12 col-md-6">
+                    <label asp-for="images[0]">Image 1</label>
+                    <input asp-for="images[0]" required="" class="form-control" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label asp-for="images[1]">Image 2</label>
+                    <input asp-for="images[1]" class="form-control" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label asp-for="images[2]">Image 3</label>
+                    <input asp-for="images[2]" class="form-control" />
+                </div>
+
+                <div class="controllers d-flex g-5 flex-column flex-md-row mt-5">
+
+                    <a class="back" asp-area="Admin" asp-controller="Product" asp-action="Index">Back</a>
+                    <button class="edit" type="submit">submit</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

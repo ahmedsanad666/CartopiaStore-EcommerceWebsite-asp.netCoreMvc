@@ -5,9 +5,9 @@ using System.Text;
 
 namespace CartopiaStore.Areas.Admin.Controllers
 {
+        [Area("Admin")]
     public class ProductController : Controller
     {
-        [Area("Admin")]
         public async Task<IActionResult> Index()
         {
            List<Product> allProducts = new List<Product>();
@@ -110,9 +110,9 @@ namespace CartopiaStore.Areas.Admin.Controllers
             return NotFound(); 
         }
 
-      
 
-        [HttpPut]
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Product updatedProduct)
         {
@@ -135,7 +135,7 @@ namespace CartopiaStore.Areas.Admin.Controllers
 
                    
                     updatedProductData.priceAfterDiscount = updatedProductData.price - (updatedProductData.price * (updatedProductData.discountPercentage / 100));
-               return RedirectToAction("Index");
+                    return View(updatedProduct);
                 }
             }
 

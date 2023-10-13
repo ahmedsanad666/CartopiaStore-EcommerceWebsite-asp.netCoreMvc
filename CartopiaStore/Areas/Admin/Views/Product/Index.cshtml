@@ -8,10 +8,13 @@
 
     <div class=" container ">
         <h1 class=" text-center my-4 py-2 fw-bold">Manage Products</h1>
-
+        <div class=" w-100  deleted-el">
+            <h4 class="card-text fw-bold    deleted-message" ></h4>
+        </div>
         <div class=" my-3">
             <div class=" w-100 py-1  text-end">
-                <a asp-area="Admin" class="btn btn-success" asp-controller="Product" asp-action="Index">Add New <i class="mx-1 fa-solid fa-plus"></i></a>
+                
+                <a class="btn btn-success"  asp-action="Create">Add New <i class="mx-1 fa-solid fa-plus"></i></a>
             </div>
             <table class="table table-striped border ">
                 <thead>
@@ -43,8 +46,8 @@
                             <td>@product.price $</td>
                             <td>
                                 <div class="d-flex flex-column flex-md-row gap-2 ">
-                                    <a class="btn btn-success">Edit</a>
-                                    <a class="btn btn-danger">Delete</a>
+                                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@product.id">Edit</a>
+                                    <a class="btn btn-danger deleteProduct" data-product-id="@product.id">Delete</a>
                                 </div>
                             </td>
 

@@ -38,3 +38,68 @@
 }
 
 /* end manaage prodrucs page*/
+
+/* forms style*/
+
+.settingsData {
+    width: 75%;
+    padding: 1.2rem 1rem;
+    border-radius: 20px;
+    background: #ccc;
+    box-shadow: 0px 0px 5px 0px #030408;
+    margin: auto;
+    color: var(--main-light);
+}
+
+    .settingsData input, .settingsData label {
+        width: 80%;
+        margin: auto;
+        outline:none;
+        border:none;
+       
+    }
+
+    .settingsData input {
+        color: var(--main-light);
+        background: rgba(0,0,0,.4);
+        box-shadow: 0px 0px 5px 1px #ccc;
+        border-radius: 15px;
+        padding: .4rem 1rem;
+        border:none;
+
+    }
+
+
+    .settingsData .row > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .settingsData textarea, .Comments textarea {
+        background: rgba(0,0,0,.4);
+        color: var(--main-light);
+        border-radius: 20px;
+        padding: 1rem 0.4rem;
+        border: none;
+        height: 100px;
+        outline: none;
+        box-shadow: 0px 0px 5px 1px #ccc;
+        width: 80%;
+        margin: auto;
+    }
+.deleted-el{
+    display:flex;
+    justify-content:start;
+    align-items:center;
+}
+.deleted-message {
+    transition: .2s all linear;
+    width: 15%;
+    padding: .7rem 1rem;
+    font-size: 1rem;
+    border-radius: .3rem;
+    background: #2ecc71;
+    color:white;
+    display:none;
+}
