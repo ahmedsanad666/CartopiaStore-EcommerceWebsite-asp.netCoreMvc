@@ -181,3 +181,76 @@ header span {
     background:none;
 }
 /*end all products page*/
+
+/*single product page*/
+
+.singleProduct{
+    width:90%;
+    min-height:75vh;
+    margin:auto;
+    border-radius:.5rem;
+    box-shadow:0px 0px 5px 2px rgba(0,0,0,.5)
+}
+.categoryBdg {
+    background: #95a5a6;
+    color: #ccc;
+    width: 39%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*................. */
+#slider {
+   height:60vh;
+   
+    margin: 50px auto;
+    border-radius:.4rem;
+    position: relative;
+    box-shadow:0px 0px 6px  3px rgba(0,0,0,.5);
+
+}
+
+
+div#slider {
+    overflow: hidden;
+    
+}
+
+    div#slider figure img {
+        width: 20%;
+        height: 100%;
+        float: left;
+        aspect-ratio:1/1;
+        object-fit:cover;
+    }
+
+    div#slider figure {
+        position: relative;
+        width: 500%;
+        margin: 0;
+        left: 0;
+        transition: 1s ease-in-out;
+    }
+
+.btn-next, .btn-prev {
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+    background:none;
+    border:none;
+
+  
+}
+
+
+.btn-prev {
+    left: 0px;
+}
+
+.btn-next {
+    right: 0px;
+}
+
+
+/*............*/
+/*end single product page*/

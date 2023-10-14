@@ -84,7 +84,7 @@
                 
             <div class="col-lg-4 col-md-6 col p-2 ">
                 <div class="card m-auto" style="width: 16rem;">
-                    <a asp-area="" asp-controller="Home" asp-action="privacy" >
+                        <a asp-area="Customer" asp-controller="Product" asp-action="SingleProduct" asp-route-id="@product.id">
 
                     <img src="@product.thumbnail" class="card-img-top" alt="...">
                     </a>

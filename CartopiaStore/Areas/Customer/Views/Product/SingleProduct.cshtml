@@ -4,6 +4,63 @@
     ViewData["Title"] = "single Product";
 }
 
-<section id="services" class="services section-bg">
+<section class="   min-vh-100  py-5 ">
    
+    <div class="singleProduct border py-4 my-4 px-5">
+        <div class="row">
+            <div class="col-md-6 col-12  px-3">
+              
+                    <div id="slider">
+                        <figure class=" py-3">
+                            @foreach(var img in Model.images){
+
+                            <img src="@img">
+                            }
+                           
+
+
+                        </figure>
+
+                        <button class="btn-prev"><i class="fa fa-arrow-circle-left fa-lg"></i> </button>
+                        <button class="btn-next"><i class="fa fa-arrow-circle-right fa-lg"></i> </button>
+
+                   
+                </div>
+            </div> 
+            <div class="col-md-6 col-12   px-3">
+
+                <div class=" d-flex flex-column gap-3 w-75 m-auto ">
+                    <h1>@Model.title</h1>
+                    <div class="d-flex justify-content-between  gap-3 fw-bold fs-5">
+                        <span >$@Model.priceAfterDiscount </span>
+                        <span class=" text-decoration-line-through"> $@Model.price </span>
+                    </div>
+                        <div class=" d-flex align-items-center gap-3">   <i class="fa-solid fa-star"></i>  <span class=" fw-bold ">@Model.rating</span></div>
+                    <div class="d-flex justify-content-between  gap-3 fw-bold fs-5">
+                        <span>@Model.brand </span>
+                        <div >Stock:
+                          
+
+                       @Model.stock 
+                        
+                        </div>
+                    </div>
+                    <span  class=" py-1  categoryBdg ">
+                        @Model.category
+                    </span>
+
+                    <div class=" my-1 py-2 px-3">
+                        <h4 class=" py-2"> Description</h4>
+                        <p class=" fs-5  text-break ">@Model.description</p>
+                    </div>
+                    </div>
+                   
+            </div>
+
+        </div>
+     
+
+    </div>
 </section>
+
+

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 
 public class AdminControllerBase : Controller
-{
+{ 
     public override void OnActionExecuting(ActionExecutingContext context)
     {
         string token = HttpContext.Request.Cookies["AuthToken"];

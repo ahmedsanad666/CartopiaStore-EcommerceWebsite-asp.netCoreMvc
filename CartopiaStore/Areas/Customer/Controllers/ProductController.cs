@@ -1,12 +1,13 @@
 ﻿using CartopiaStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CartopiaStore.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class ProductController : Controller
-    {
+    {      
         public async Task<IActionResult> Index()
         {
             ViewModel viewModel = new ViewModel();
@@ -68,6 +69,42 @@ namespace CartopiaStore.Areas.Customer.Controllers
                     product.priceAfterDiscount = product.price - (product.price * (product.discountPercentage / 100));
 
                     return View(product);
+                }
+            }
+
+            return NotFound();
+        } 
+        
+        
+        
+        public async Task<IActionResult> Search(string Input)
+        {
+            ProductClass data = new ProductClass();
+            if (Input == null)
+            {
+                return NotFound();
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                string productLink = $"https://dummyjson.com/products/search?q={Input}";
+
+                HttpResponseMessage productResponse = await client.GetAsync(productLink);
+
+                if (productResponse.IsSuccessStatusCode)
+                {
+                    string productData = await productResponse.Content.ReadAsStringAsync();
+                 data = JsonConvert.DeserializeObject<ProductClass>(productData);
+
+                 
+
+                    foreach (var product in data.Products)
+                    {
+                        product.priceAfterDiscount = product.price - (product.price * (product.discountPercentage / 100));
+                    }
+
+
+                    return View(data);
                 }
             }
 
